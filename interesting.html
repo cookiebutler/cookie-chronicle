@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>흥미의 기록</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+    .notice {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      z-index: 10;
+      animation: fadeout 5s forwards;
+    }
+    @keyframes fadeout {
+      0% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="notice">우측 하단 버튼을 눌러보세요</div>
+  <iframe src="https://mosaically.com/embed/72888abc-4c9b-44d5-9da8-04bef0dae206?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
+</body>
+</html>
