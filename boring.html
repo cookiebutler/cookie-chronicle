@@ -15,7 +15,7 @@
     }
     .notice {
       position: absolute;
-      top: 20px;
+      top: 60px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0,0,0,0.7);
@@ -23,12 +23,43 @@
       border-radius: 8px;
       font-size: 1rem;
       z-index: 10;
-      animation: fadeout 5s forwards;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
     }
-    @keyframes fadeout {
-      0% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; display: none; }
+    .notice.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .home-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.9);
+      color: #000;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #fff;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 16px;
+      border-radius: 50%;
+      text-decoration: none;
+      z-index: 10;
+    }
+    .arrow.left {
+      left: 20px;
+    }
+    .arrow.right {
+      right: 20px;
     }
     iframe {
       width: 100vw;
@@ -38,7 +69,38 @@
   </style>
 </head>
 <body>
-  <div class="notice">하단 버튼을 눌러 작품을 감상하세요.</div>
-  <iframe src="https://mosaically.com/embed/8bc0ae39-f6e7-48dd-b069-0abebbdfb354?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
+  <a href="index.html" class="home-btn">뒤로</a>
+  <a href="interesting.html" class="arrow left">&lt;</a>
+  <a href="sleepy.html" class="arrow right">&gt;</a>
+  <div id="zoom-hint" class="notice">우측 하단 마지막 버튼을 눌러보세요</div>
+  <iframe id="viewer" src="https://mosaically.com/embed/8bc0ae39-f6e7-48dd-b069-0abebbdfb354?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
+
+  <script>
+    const hint = document.getElementById("zoom-hint");
+    const iframe = document.getElementById("viewer");
+
+    setTimeout(() => {
+      hint.classList.add("show");
+    }, 3000);
+
+    iframe.addEventListener("load", () => {
+      iframe.contentWindow.addEventListener("click", () => {
+        hint.classList.remove("show");
+      });
+    });
+
+    // 10초 무작동 시 index.html로 이동
+    let idleTimer;
+    function resetTimer() {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        window.location.href = "index.html";
+      }, 10000);
+    }
+    ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(evt =>
+      window.addEventListener(evt, resetTimer)
+    );
+    resetTimer();
+  </script>
 </body>
 </html>
