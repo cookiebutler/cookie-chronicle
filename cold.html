@@ -38,7 +38,7 @@
       background: rgba(255,255,255,0.9);
       color: #000;
       text-decoration: none;
-      padding: 8px 14px;
+      padding: 8px 20px;
       border-radius: 6px;
       font-size: 0.9rem;
       z-index: 10;
@@ -50,7 +50,7 @@
       font-size: 2rem;
       color: #fff;
       background: rgba(0,0,0,0.4);
-      padding: 10px 16px;
+      padding: 16px 16px;
       border-radius: 50%;
       text-decoration: none;
       z-index: 10;
@@ -69,10 +69,9 @@
   </style>
 </head>
 <body>
-  <a href="index.html" class="home-btn">뒤로</a>
+  <a href="index.html" class="home-btn">홈으로</a>
   <a href="explore.html" class="arrow left">&lt;</a>
   <a href="whine.html" class="arrow right">&gt;</a>
-  <div id="zoom-hint" class="notice">좌측 하단 첫 번째 버튼을 눌러보세요</div>
   <iframe id="viewer" src="https://mosaically.com/embed/881af36f-5522-494c-9450-8cda4c9375d9?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
 
   <script>
@@ -94,7 +93,7 @@
     function resetTimer() {
       clearTimeout(idleTimer);
       idleTimer = setTimeout(() => {
-        window.location.href = "index.html";
+        window.top.location.href = "index.html";
       }, 10000);
     }
     ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(evt =>
