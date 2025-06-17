@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>새침함</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《새침함의 기록》</title>
   <style>
     body {
       margin: 0;
       background: #000;
+      color: #fff;
       font-family: sans-serif;
       overflow: hidden;
-      color: #fff;
     }
     .notice {
       position: absolute;
@@ -32,10 +32,9 @@
       pointer-events: auto;
     }
     .home-btn {
-  left: 40px !important;
       position: absolute;
       top: 20px;
-      
+      left: 20px;
       background: rgba(255,255,255,0.9);
       color: #000;
       text-decoration: none;
@@ -50,29 +49,17 @@
       transform: translateY(-50%);
       font-size: 2rem;
       color: #fff;
-      background: none;
-      border: none;
-      text-decoration: none;
-      z-index: 10;
-      
-    }
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: #fff;
-      background: transparent;
+      background: rgba(0,0,0,0.4);
       padding: 10px 16px;
+      border-radius: 50%;
       text-decoration: none;
       z-index: 10;
-      border-radius: 0;
-      
     }
     .arrow.left {
-  left: 40px !important;
+      left: 20px;
     }
     .arrow.right {
-  right: 20px !important;
+      right: 20px;
     }
     iframe {
       width: 100vw;
@@ -82,34 +69,38 @@
   </style>
 </head>
 <body>
-  <a href="index.html" class="home-btn">홈으로</a>
+  <a href="index.html" class="home-btn">뒤로</a>
   <a href="explore.html" class="arrow left">&lt;</a>
   <a href="whine.html" class="arrow right">&gt;</a>
   <div id="zoom-hint" class="notice">좌측 하단 첫 번째 버튼을 눌러보세요</div>
-  <iframe id="viewer" src="https://mosaically.com/embed/881af36f-5522-494c-9450-8cda4c9375d9?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
+  <iframe id="viewer" src="https://mosaically.com/embed/881af36f-5522-494c-9450-8cda4c9375d9?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
 
   <script>
+    const hint = document.getElementById("zoom-hint");
+    const iframe = document.getElementById("viewer");
+
     setTimeout(() => {
-      document.getElementById("zoom-hint").classList.add("show");
+      hint.classList.add("show");
     }, 3000);
 
-    document.getElementById("viewer").addEventListener("load", () => {
-      document.getElementById("viewer").contentWindow.addEventListener("click", () => {
-        document.getElementById("zoom-hint").classList.remove("show");
+    iframe.addEventListener("load", () => {
+      iframe.contentWindow.addEventListener("click", () => {
+        hint.classList.remove("show");
       });
     });
 
+    // 10초 무작동 시 index.html로 이동
     let idleTimer;
-    function resetIdleTimer() {
+    function resetTimer() {
       clearTimeout(idleTimer);
       idleTimer = setTimeout(() => {
         window.location.href = "index.html";
       }, 10000);
     }
-    ['mousemove', 'mousedown', 'keydown', 'wheel', 'touchstart', 'scroll'].forEach(event => {
-      window.addEventListener(event, resetIdleTimer);
-    });
-    resetIdleTimer();
+    ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(evt =>
+      window.addEventListener(evt, resetTimer)
+    );
+    resetTimer();
   </script>
 </body>
 </html>
