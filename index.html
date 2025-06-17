@@ -2,104 +2,73 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>쿠키 연대기</title>
   <style>
     body {
-      margin: 0;
-      padding: 40px 20px;
       font-family: sans-serif;
-      background: #f9f9f9;
-      color: #222;
+      background: #fff;
+      padding: 40px 20px;
+      margin: 0;
     }
     h1 {
       text-align: center;
       margin-bottom: 40px;
+      font-size: 2.5em;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      max-width: 1080px;
-      margin: 0 auto;
+      max-width: 1200px;
+      margin: auto;
     }
     .item {
       text-align: center;
-      background: #fff;
-      padding: 12px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease;
     }
-    .item:hover {
-      transform: translateY(-6px);
+    .item a {
+      text-decoration: none;
+      color: inherit;
     }
     .item img {
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      border-radius: 8px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
     }
-    .item p {
-      margin-top: 12px;
-      font-size: 1rem;
+    .item img:hover {
+      transform: scale(1.03);
+    }
+    .caption {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
     }
   </style>
 </head>
 <body>
   <h1>쿠키 연대기</h1>
   <div class="gallery">
-
-    <a class="item" href="pride.html">
-      <img src="pride.jpg" alt="거만함">
-      <p>《거만함》</p>
-    </a>
-    
-    <a class="item" href="sleepydeep.html">
-      <img src="sleepydeep.jpg" alt="까무룩잠(깊은잠)">
-      <p>《까무룩잠(깊은잠)》</p>
-    </a>
-    
-    <a class="item" href="surprise.html">
-      <img src="surprise.jpg" alt="놀람">
-      <p>《놀람》</p>
-    </a>
-    
-    <a class="item" href="lick.html">
-      <img src="lick.jpg" alt="할짝임">
-      <p>《할짝임》</p>
-    </a>
-    
-    <a class="item" href="explore.html">
-      <img src="explore.jpg" alt="탐험">
-      <p>《탐험》</p>
-    </a>
-    
-    <a class="item" href="cold.html">
-      <img src="cold.jpg" alt="새침함">
-      <p>《새침함》</p>
-    </a>
-    
-    <a class="item" href="whine.html">
-      <img src="whine.jpg" alt="생떼">
-      <p>《생떼》</p>
-    </a>
-    
-    <a class="item" href="sleepy.html">
-      <img src="sleepy.jpg" alt="졸음">
-      <p>《졸음》</p>
-    </a>
-    
-    <a class="item" href="interesting.html">
-      <img src="interesting.jpg" alt="흥미">
-      <p>《흥미》</p>
-    </a>
-    
-    <a class="item" href="boring.html">
-      <img src="boring.jpg" alt="귀찮음">
-      <p>《귀찮음》</p>
-    </a>
-    
+    <div class="item">
+      <a href="boring.html">
+        <img src="boring.jpg" alt="귀찮음의 기록">
+        <div class="caption">《귀찮음의 기록》</div>
+      </a>
+    </div>
+    <div class="item">
+      <a href="sleepy.html">
+        <img src="seelpy.jpg" alt="졸음의 기록">
+        <div class="caption">《졸음의 기록》</div>
+      </a>
+    </div>
+    <div class="item">
+      <a href="interesting.html">
+        <img src="interesting.jpg" alt="흥미의 기록">
+        <div class="caption">《흥미의 기록》</div>
+      </a>
+    </div>
   </div>
 </body>
 </html>
