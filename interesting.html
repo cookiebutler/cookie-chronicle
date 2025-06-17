@@ -50,7 +50,7 @@
       font-size: 2rem;
       color: #fff;
       background: rgba(0,0,0,0.4);
-      padding: 4px 10px;
+      padding: px 10px;
       border-radius: 50%;
       text-decoration: none;
       z-index: 10;
@@ -72,23 +72,27 @@
   <a href="index.html" class="home-btn">홈으로</a>
   <a href="sleepy.html" class="arrow left">&lt;</a>
   <a href="pride.html" class="arrow right">&gt;</a>
-  <iframe src="https://mosaically.com/embed/72888abc-4c9b-44d5-9da8-04bef0dae206?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=0&autoplay=1&bg=" ...>
+  
+  <div id="zoom-hint" class="notice">확대하려면 클릭하세요 🔍</div>
+  
+  <iframe id="viewer" src="https://mosaically.com/embed/72888abc-4c9b-44d5-9da8-04bef0dae206?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=0&autoplay=1&bg="></iframe>
 
   <script>
     const hint = document.getElementById("zoom-hint");
     const iframe = document.getElementById("viewer");
 
-    setTimeout(() => {
-      hint.classList.add("show");
-    }, 3000);
+    if (hint && iframe) {
+      setTimeout(() => {
+        hint.classList.add("show");
+      }, 3000);
 
-    iframe.addEventListener("load", () => {
-      iframe.contentWindow.addEventListener("click", () => {
-        hint.classList.remove("show");
+      iframe.addEventListener("load", () => {
+        iframe.contentWindow.addEventListener("click", () => {
+          hint.classList.remove("show");
+        });
       });
-    });
+    }
 
-    // 10초 무작동 시 index.html로 이동
     let idleTimer;
     function resetTimer() {
       clearTimeout(idleTimer);
@@ -96,8 +100,9 @@
         window.top.location.href = "index.html";
       }, 10000);
     }
-    ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(evt =>
-      window.addEventListener(evt, resetTimer)
+
+    ['mousemove', 'keydown', 'mousedown', 'touchstart', 'touchmove'].forEach(evt =>
+      window.addEventListener(evt, resetTimer, { passive: true })
     );
     resetTimer();
   </script>
