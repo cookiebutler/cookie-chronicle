@@ -1,12 +1,11 @@
 
 <!DOCTYPE html>
-
 <html lang="ko">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>《흥미의 기록》</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>귀찮음의 기록</title>
+  <style>
     body {
       margin: 0;
       background: #000;
@@ -70,12 +69,13 @@
   </style>
 </head>
 <body>
-<a class="home-btn" href="index.html">뒤로</a>
-<a class="arrow left" href="interesting.html">&lt;</a>
-<a class="arrow right" href="sleepy.html">&gt;</a>
-<div class="notice" id="zoom-hint">좌측 하단 첫 번째 버튼을 눌러보세요</div>
-<iframe allowfullscreen="" id="viewer" src="https://mosaically.com/embed/8bc0ae39-f6e7-48dd-b069-0abebbdfb354?title=1&amp;artist=0&amp;description=0&amp;play=1&amp;search=0&amp;contribute=0&amp;buy=0&amp;share=0&amp;likecomment=1&amp;autoplay=0&amp;bg="></iframe>
-<script>
+  <a href="index.html" class="home-btn">뒤로</a>
+  <a href="interesting.html" class="arrow left">&lt;</a>
+  <a href="sleepy.html" class="arrow right">&gt;</a>
+  <div id="zoom-hint" class="notice">좌측 하단 첫 번째 버튼을 눌러보세요</div>
+  <iframe id="viewer" src="https://mosaically.com/embed/8bc0ae39-f6e7-48dd-b069-0abebbdfb354?title=1&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=1&autoplay=0&bg=" allowfullscreen></iframe>
+
+  <script>
     const hint = document.getElementById("zoom-hint");
     const iframe = document.getElementById("viewer");
 
