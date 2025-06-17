@@ -1,81 +1,120 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>쿠키 연대기</title>
-<style>
-body { font-family: sans-serif; background: #fff; padding: 2rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-.item { text-align: center; }
-.item img { width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-.item p { margin-top: 0.5rem; font-size: 1.1rem; color: #333; }
-h1 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠키 연대기</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: 'Helvetica Neue', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .item {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .item img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 2px solid #fff;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .item img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .item p {
+      margin-top: 12px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .item p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>쿠키 연대기</h1>
-<div class="grid">
-<div class="item">
-  <a href="boring.html">
-    <img src="boring.jpg" alt="《귀찮음의 기록》">
-  </a>
-  <p>《귀찮음의 기록》</p>
-</div>
-<div class="item">
-  <a href="sleepy.html">
-    <img src="sleepy.jpg" alt="《졸음의 기록》">
-  </a>
-  <p>《졸음의 기록》</p>
-</div>
-<div class="item">
-  <a href="interesting.html">
-    <img src="interesting.jpg" alt="《흥미의 기록》">
-  </a>
-  <p>《흥미의 기록》</p>
-</div>
-<div class="item">
-  <a href="pride.html">
-    <img src="pride.jpg" alt="《거만함의 기록》">
-  </a>
-  <p>《거만함의 기록》</p>
-</div>
-<div class="item">
-  <a href="lick.html">
-    <img src="lick.jpg" alt="《할짝임의 기록》">
-  </a>
-  <p>《할짝임의 기록》</p>
-</div>
-<div class="item">
-  <a href="sleepydeep.html">
-    <img src="sleepydeep.jpg" alt="《까무룩잠의 기록》">
-  </a>
-  <p>《까무룩잠의 기록》</p>
-</div>
-<div class="item">
-  <a href="whine.html">
-    <img src="whine.jpg" alt="《생떼의 기록》">
-  </a>
-  <p>《생떼의 기록》</p>
-</div>
-<div class="item">
-  <a href="cold.html">
-    <img src="cold.jpg" alt="《새침함의 기록》">
-  </a>
-  <p>《새침함의 기록》</p>
-</div>
-<div class="item">
-  <a href="surprise.html">
-    <img src="surprise.jpg" alt="《놀람의 기록》">
-  </a>
-  <p>《놀람의 기록》</p>
-</div>
-<div class="item">
-  <a href="explore.html">
-    <img src="explore.jpg" alt="《탐험의 기록》">
-  </a>
-  <p>《탐험의 기록》</p>
-</div>
-</div>
+  <h1>《쿠키 연대기》</h1>
+  <div class="grid">
+    <div class="item">
+      <a href="boring.html"><img src="boring.jpg" alt="귀찮음의 기록"></a>
+      <p>《귀찮음의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="sleepy.html"><img src="sleepy.jpg" alt="졸음의 기록"></a>
+      <p>《졸음의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="interesting.html"><img src="interesting.jpg" alt="흥미의 기록"></a>
+      <p>《흥미의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="pride.html"><img src="pride.jpg" alt="거만함의 기록"></a>
+      <p>《거만함의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="lick.html"><img src="lick.jpg" alt="할짝임의 기록"></a>
+      <p>《핥짝임의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="sleepydeep.html"><img src="sleepydeep.jpg" alt="까무룩잠의 기록"></a>
+      <p>《까무룩잠의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="whine.html"><img src="whine.jpg" alt="생떼의 기록"></a>
+      <p>《생떼의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="cold.html"><img src="cold.jpg" alt="새침함의 기록"></a>
+      <p>《새침함의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="surprise.html"><img src="surprise.jpg" alt="놀람의 기록"></a>
+      <p>《놀람의 기록》</p>
+    </div>
+    <div class="item">
+      <a href="explore.html"><img src="explore.jpg" alt="탐험의 기록"></a>
+      <p>《탐험의 기록》</p>
+    </div>
+  </div>
 </body>
 </html>
