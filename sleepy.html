@@ -26,6 +26,7 @@
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
+      white-space: nowrap;
     }
     .notice.show {
       opacity: 1;
@@ -56,10 +57,10 @@
       z-index: 10;
     }
     .arrow.left {
-      left: 20px;
+      left: 10px;
     }
     .arrow.right {
-      right: 20px;
+      right: 10px;
     }
     iframe {
       width: 100vw;
@@ -73,7 +74,7 @@
   <a href="boring.html" class="arrow left">&lt;</a>
   <a href="interesting.html" class="arrow right">&gt;</a>
 
-  <div id="zoom-hint" class="notice">확대해서 작품을 감상하세요.</div>
+  <div id="zoom-hint" class="notice">좌측 하단 버튼을 눌러 멈출 수 있어요.</div>
    
   <iframe id="viewer" src="https://mosaically.com/embed/382687f0-1c58-4ed6-887d-5461e063aa28?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=0&autoplay=1&bg=" allowfullscreen></iframe>
 
