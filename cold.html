@@ -83,14 +83,11 @@
     const iframe = document.getElementById("viewer");
 
     setTimeout(() => {
-      hint.classList.add("show");
-    }, 3000);
-
-    iframe.addEventListener("load", () => {
-      iframe.contentWindow.addEventListener("click", () => {
-        hint.classList.remove("show");
-      });
-    });
+  hint.classList.add("show");     // 3초 뒤에 안내문 나타나고,
+  setTimeout(() => {
+    hint.classList.remove("show"); // 2초 후에 자동으로 사라짐
+  }, 2000);
+}, 3000);
 
     // 10초 무작동 시 index.html로 이동
     let idleTimer;
