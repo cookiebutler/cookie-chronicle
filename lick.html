@@ -98,7 +98,7 @@
       clearTimeout(idleTimer);
       idleTimer = setTimeout(() => {
         window.top.location.href = "index.html";
-      }, 10000);
+      }, 30000);
     }
     ['mousemove', 'keydown', 'mousedown', 'touchstart'].forEach(evt =>
       window.addEventListener(evt, resetTimer)
