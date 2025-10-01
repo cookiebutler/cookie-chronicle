@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내가 작업하는 게 궁금한가? - 쿠키 연대기</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+    .image-gallery {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .main-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+    .button-link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .post-content {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    .post-header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .post-header .date {
+      color: #888;
+      font-size: 1em;
+    }
+    .post-body {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-gallery">
+      <img src="내가 작업하는 게 궁금한가.png" alt="카메라를 응시하는 쿠키" class="main-image">
+      <button class="nav-arrow prev">&lt;</button>
+      <button class="nav-arrow next">&gt;</button>
+      <a href="index.html#collage" class="button-link">콜라주 보러가기</a>
+    </div>
+    <div class="post-content">
+      <div class="post-header">
+        <h1>내가 작업하는 게 궁금한가?</h1>
+        <span class="date">2022/09/09</span>
+      </div>
+      <p class="post-body">
+        오늘 작업을 하다가 또 시선을 느꼈다. 책상에 앉아 집중하고 있으면 늘 같은 자리에서 두 눈이 반짝인다. 바로 쿠키다. 내가 펜을 움직이든, 키보드를 두드리든, 화면을 멍하니 바라보든 상관없이, 쿠키는 언제나 나를 바라본다.
+        <br><br>
+        처음엔 단순히 호기심이라고 생각했다. "집사가 뭐 하고 있나?" 싶어서 구경하는 줄 알았다. 그런데 시간이 지날수록 쿠키의 눈빛은 단순한 구경꾼의 시선이 아니란 걸 알게 되었다. 마치 "나 관심 줘. 집사야, 뭐해?" 하고 묻는 듯하다.
+        <br><br>
+        그래서 오늘도 웃으며 물었다. “쿠키야, 내가 작업하는 게 그렇게 궁금해?” 쿠키는 대답 대신 눈을 지긋이 감더니, 그대로 내 무릎 위로 올라왔다. 결국, 작업은 잠시 멈췄다. 하지만 괜찮다. 쿠키와 함께라면 나의 하루는 이미 충분히 완성된 것 같으니까~~~
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    prevButton.addEventListener('click', () => {
+      window.location.href = 'diary.html'; // 이전: 1번 일기
+    });
+
+    nextButton.addEventListener('click', () => {
+      window.location.href = 'diary_3.html'; // 다음: 3번 일기
+    });
+  </script>
+
+</body>
+</html>

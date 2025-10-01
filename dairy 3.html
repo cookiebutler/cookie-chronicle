@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화가 잔뜩 난 쿠키야... - 쿠키 연대기</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+    .image-gallery {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .main-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+    .button-link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .post-content {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    .post-header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .post-header .date {
+      color: #888;
+      font-size: 1em;
+    }
+    .post-body {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-gallery">
+      <img src="화가 잔뜩 난 쿠키야.png" alt="화가 난 표정의 쿠키" class="main-image">
+      <button class="nav-arrow prev">&lt;</button>
+      <button class="nav-arrow next">&gt;</button>
+      <a href="index.html#collage" class="button-link">콜라주 보러가기</a>
+    </div>
+    <div class="post-content">
+      <div class="post-header">
+        <h1>화가 잔뜩 난 쿠키야...</h1>
+        <span class="date">2022/09/08</span>
+      </div>
+      <p class="post-body">
+        간식 안 줘서 시위하고 있는 표정이 너무 귀여워서 미치고 팔짝 뛸 노릇이다. "마웅..." 한 번 울고 한참을 저러고 노려보는데 진짜 미치게 귀엽다.
+        <br><br>
+        안 주면 또 "마웅...." 그래서 어쩔 수 없이 간식을 주고 싶어지는데, 버릇 나빠질까봐 꾹 참는다. 떼 쓸 때마다 주면 계속 불만을 가질 것 같다. 그럼 쿠키랑 사이가 안 좋아질거고.... 악 그건 안돼!
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    prevButton.addEventListener('click', () => {
+      window.location.href = 'diary_2.html'; // 이전: 2번 일기
+    });
+
+    nextButton.addEventListener('click', () => {
+      window.location.href = 'diary.html'; // 다음: 1번 일기
+    });
+  </script>
+
+</body>
+</html>

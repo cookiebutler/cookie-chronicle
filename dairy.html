@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠키는 송곳니가 부러졌다 - 쿠키 연대기</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+    .image-gallery {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .main-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 12px;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.3);
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+    .button-link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .post-content {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+    .post-header h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .post-header .date {
+      color: #888;
+      font-size: 1em;
+    }
+    .post-body {
+      font-size: 1.1em;
+      line-height: 1.8;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="image-gallery">
+      <img src="쿠키는 송곳니가 부러졌다.jpg" alt="부러진 송곳니를 보이는 쿠키" class="main-image">
+      <button class="nav-arrow prev">&lt;</button>
+      <button class="nav-arrow next">&gt;</button>
+      <a href="index.html#collage" class="button-link">콜라주 보러가기</a>
+    </div>
+    <div class="post-content">
+      <div class="post-header">
+        <h1>쿠키는 송곳니가 부러졌다</h1>
+        <span class="date">2022/09/10</span>
+      </div>
+      <p class="post-body">
+        쿠키를 입양한지 얼마 며칠 안된 날 평소처럼 간식을 주려고 보는데, 뭔가 입 주변이 어색했다. 자세히 보니 송곳니 하나가 반쯤 부러져 있었다. 순간 심장이 덜컥 내려앉았다. "이게 대체 언제, 어떻게 된 거지?" 잘 뛰어놀아서 몰랐는데 전혀 눈치채지 못했다는 게 더 미안했다.
+        <br><br>
+        부러진 치아는 사람도 아픈데, 쿠키는 얼마나 놀랐을까 싶다. 하지만 쿠키는 태연한 표정으로 그루밍을 하고 있었다. 그 모습이 다행이면서도, 혹시 아픔을 꾹 참고 있는 건 아닐까 걱정이 되었다. 전 주인에게 학대받은 걸까?
+        <br><br>
+        인터넷을 찾아보니 고양이 송곳니가 부러지면 신경이 드러날 수도 있고, 염증이나 통증으로 이어질 수 있다고 했다. 읽는 순간 마음이 더 무거워졌다. 오늘은 우선 밥과 물을 먹는 걸 지켜봤는데 다행히 잘 먹었다. 그래도 병원에 꼭 데려가야겠다.
+        <br><br>
+        쿠키를 보며 다시 다짐한다. 앞으로 더 세심하게 살피자. 쿠키에게는 큰 아픔이 될 수 있으니까. 오늘은 쿠키의 덤덤한 모습에 고마움을 느끼면서, 동시에 집사로서의 책임감을 다시 한 번 크게 느낀 하루였다.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+
+    prevButton.addEventListener('click', () => {
+      window.location.href = 'diary_3.html'; // 이전: 3번 일기
+    });
+
+    nextButton.addEventListener('click', () => {
+      window.location.href = 'diary_2.html'; // 다음: 2번 일기
+    });
+  </script>
+
+</body>
+</html>
