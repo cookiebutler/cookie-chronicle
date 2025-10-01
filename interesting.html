@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -62,6 +61,20 @@
     .arrow.right {
       right: 10px;
     }
+    .diary-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
     iframe {
       width: 100vw;
       height: 100vh;
@@ -76,16 +89,18 @@
   
   <div id="zoom-hint" class="notice">좌측 하단 버튼을 눌러 멈출 수 있어요.</div>
   
-  <iframe id="viewer" src="https://mosaically.com/embed/72888abc-4c9b-44d5-9da8-04bef0dae206?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=0&autoplay=1&bg=" scrolling="no" width="100%" height="480" frameBorder="0" allowfullscreen></iframe><!--REMOVING THE FOLLOWING CREDIT IS A VIOLATION OF YOUR TERMS OF USE--><br><small>Photo mosaic by: <a href="https://mosaically.com/yulli">yulli</a> @ <a href="https://mosaically.com">Mosaically</a></small>
+  <a href="index.html#diary" class="diary-btn">일기 보러가기</a>
+
+  <iframe id="viewer" src="https://mosaically.com/embed/72888abc-4c9b-44d5-9da8-04bef0dae206?title=0&artist=0&description=0&play=1&search=0&contribute=0&buy=0&share=0&likecomment=0&autoplay=1&bg=" scrolling="no" width="100%" height="480" frameBorder="0" allowfullscreen></iframe><br><small>Photo mosaic by: <a href="https://mosaically.com/yulli">yulli</a> @ <a href="https://mosaically.com">Mosaically</a></small>
 
   <script>
     const hint = document.getElementById("zoom-hint");
     const iframe = document.getElementById("viewer");
 
       setTimeout(() => {
-  hint.classList.add("show");     // 3초 뒤에 안내문 나타나고,
+  hint.classList.add("show");
   setTimeout(() => {
-    hint.classList.remove("show"); // 2초 후에 자동으로 사라짐
+    hint.classList.remove("show");
   }, 2000);
 }, 3000);
 
