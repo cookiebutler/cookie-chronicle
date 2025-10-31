@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠키집사의 일기장 - 2025.04.27</title>
+    <style>
+        /* CSS Reset 및 기본 설정 */
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Nanum Gothic', 'Malgun Gothic', 'Roboto', 'Helvetica Neue', sans-serif;
+            background-color: #FFE8E8; 
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            font-size: 16px; 
+        }
+
+        /* 전체 컨테이너: 중앙 정렬 및 최대 너비 설정 */
+        .container {
+            max-width: 780px; 
+            margin: 0 auto;
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+
+        /* 일기장 전체 헤더 */
+        .diary-header {
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: 500;
+            color: #DE80AE;
+            margin-bottom: 50px;
+        }
+
+        /* 🌟 헤더 링크 스타일: 기본 링크 스타일 제거 🌟 */
+        .diary-header .header-link {
+            text-decoration: none; 
+            color: inherit; 
+        }
+
+        /* ========================================================= */
+        /* ⭐ 1. 일기 포스트 전체 영역 (하나의 둥근 긴 카드) ⭐ */
+        /* ========================================================= */
+        .post-content {
+            padding: 40px; 
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 제목 색상 */
+        .post-title {
+            font-size: 1.8em; 
+            font-weight: 700;
+            color: #DE80AE; 
+            margin-bottom: 8px;
+        }
+
+        /* 메타 정보 */
+        .post-meta {
+            color: #777;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-bottom: 40px; 
+            display: flex;
+        }
+
+        .post-meta span {
+            margin-right: 15px;
+        }
+
+        /* ========================================================= */
+        /* ⭐ 2. 구분선 (본문용) ⭐ */
+        /* ========================================================= */
+        .separator {
+            border: none;
+            border-top: 1px solid #f0f0f0; 
+            margin: 40px 0; 
+        }
+        
+        /* 이미지 컨테이너 */
+        .post-image {
+            margin: 0 0 40px 0;
+            text-align: center;
+        }
+
+        .post-image img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+            margin: 0 auto; 
+            border-radius: 3px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-body {
+            margin-bottom: 60px; 
+        }
+
+        .post-body p {
+            margin-bottom: 1.2em;
+            color: #383838;
+            font-size: 1.05em;
+            font-weight: 400;
+            line-height: 1.75;
+        }
+        
+        /* ========================================================= */
+        /* ⭐ 3. 전체 목록 섹션 ⭐ */
+        /* ========================================================= */
+        .post-list-section {
+            padding-top: 0; 
+        }
+
+        .list-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #7b7b7b;
+            margin-bottom: 15px; 
+        }
+
+        /* '전체보기' 제목 아래 구분선 스타일 */
+        .list-separator {
+            border: none;
+            border-top: 1.4px solid #d0d0d0;
+            margin: 0px 0; 
+        }
+        
+        /* 목록 헤더 스타일 (글제목, 날짜) */
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 0 5px 0; 
+            color: #b0b0b0; 
+            font-size: 0.9em;
+            font-weight: 400;
+        }
+        
+        /* 글제목 헤더 */
+        .header-title {
+            flex-grow: 1;
+            padding-left: 2px;
+        }
+        
+        /* 날짜 헤더 */
+        .header-date {
+            flex-shrink: 0;
+            margin-left: 20px;
+            padding-right: 2px;
+        }
+
+        .post-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .post-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0; 
+            font-size: 0.95em;
+        }
+        
+        /* 목록 글 제목 색상 연하게 */
+        .list-post-title {
+            color: #999; 
+            text-decoration: none;
+            flex-grow: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .list-post-title:hover {
+            color: #000;
+        }
+
+        /* 목록 작성일 색상 연하게 */
+        .list-date {
+            color: #bbb; 
+            font-size: 0.85em;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+        
+        /* ⭐ 페이징 스타일 ⭐ */
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .page-link {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 3px;
+            /* 외곽선 및 배경 제거 */
+            border: none; 
+            background-color: transparent; 
+            color: #777; /* 비활성화된 숫자의 기본 색상 */
+            text-decoration: none;
+            cursor: pointer; 
+        }
+        .page-link.active {
+            /* 활성화 시 색상만 변경 */
+            background-color: transparent; 
+            color: #DE80AE; /* 활성화된 숫자의 색상 */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="diary-header">
+            <a href="index.html#diary" class="header-link">쿠키집사의 일기장</a>
+        </header>
+
+        <main class="post-content">
+            <h1 class="post-title">봄바람 맡는 쿠키</h1>
+            
+            <div class="post-meta">
+                <span class="author">🍪쿠키집사</span>
+                <span class="date">2025. 04. 27</span> 
+            </div>
+
+            <hr class="separator">
+
+            <div class="post-image">
+                <img src="img_2025.04.27.jpg" alt="봄바람 맡는 쿠키" width="400" height="400">
+            </div>
+
+            <div class="post-body">
+                <p>창문 열어줬더니 코를 씰룩씰룩 거리며 냄새를 맡는다. 새소리 들리자 귀가 쫑긋! 눈도 새초롬! 잎이 푸릇한게 봄이 왔나봐 꾸끼야~</p>
+                
+            </div>
+
+            <section class="post-list-section">
+                <h2 class="list-title">전체보기</h2>
+                
+                <div class="list-header">
+                    <span class="header-title">글 제목</span>
+                    <span class="header-date">작성일</span>
+                </div>
+
+                <hr class="list-separator"> 
+                
+                <div class="post-list">
+                    <ul id="post-list-ul">
+                        </ul>
+                </div>
+                
+                <div class="pagination" id="pagination-controls">
+                    </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        const allDiaryEntries = [
+            // 2025년 (최신순 데이터)
+            { date: "2025.10.15", title: "키아악!!! 지구 뿌셔버려!!", alt: "키아악!" },
+            { date: "2025.10.14", title: "식빵냥", alt: "식빵냥" },
+            { date: "2025.10.13", title: "건대집 임차인 구하기", alt: "건대집 임차인 구하기" },
+            { date: "2025.10.12", title: "다행이야~", alt: "다행이야~" },
+            { date: "2025.10.09", title: "사료가 안맞나?", alt: "사료가 안맞나?" },
+            { date: "2025.10.08", title: "첫양치", alt: "첫양치" },
+            { date: "2025.10.07", title: "털북숭 망고스틴", alt: "털북숭 망고스틴" },
+            { date: "2025.10.06", title: "쿠키의 이름들", alt: "쿠키의 이름들" },
+            { date: "2025.10.05", title: "빗속의 쿠키 구경", alt: "빗속의 쿠키 구경" },
+            { date: "2025.09.01", title: "다섯 번째 쿠키 생일🎂", alt: "다섯 번째 쿠키 생일" },
+            { date: "2025.08.25", title: "이사 준비 중의 쿠키", alt: "이사 준비 중의 쿠키" },
+            { date: "2025.07.19", title: "여름 더위 이겨내기 프로젝트", alt: "여름 더위 이겨내기 프로젝트" },
+            { date: "2025.06.15", title: "해바라기 쿠키", alt: "해바라기 쿠키" },
+            { date: "2025.05.02", title: "쿠키의 무빙쇼", alt: "쿠키의 무빙쇼" },
+            { date: "2025.04.27", title: "봄바람 맡는 쿠키", alt: "봄바람 맡는 쿠키" },
+            { date: "2025.03.10", title: "캣타워 최정상 등극", alt: "캣타워 최정상 등극" },
+            { date: "2025.02.03", title: "쿠키의 새 사료 탐험기", alt: "쿠키의 새 사료 탐험기" },
+            { date: "2025.01.01", title: "새해 첫 아침, 쿠키랑", alt: "새해 첫 아침" },
+            // 2024년
+            { date: "2024.11.15", title: "노을빛 쿠키", alt: "노을빛 쿠키" },
+            { date: "2024.09.05", title: "털갈이 시즌 재돌입", alt: "털갈이 시즌 재돌입" },
+            { date: "2024.06.30", title: "여름잠 쿠키", alt: "여름잠 쿠키" },
+            { date: "2024.04.12", title: "창문 아래 햇살자리", alt: "창문 아래 햇살자리" },
+            { date: "2024.02.10", title: "첫 눈썹털 발견ㅋㅋ", alt: "첫 눈썹털 발견" },
+            // 2023년
+            { date: "2023.12.24", title: "트리 아래 쿠키", alt: "트리 아래 쿠키" },
+            { date: "2023.10.01", title: "낙엽+쿠키 = 가을 완성", alt: "낙엽+쿠키 = 가을 완성" },
+            { date: "2023.08.20", title: "쿠키의 이갈이(?) 소리", alt: "쿠키의 이갈이(?) 소리" },
+            { date: "2023.07.09", title: "에어컨 첫 가동", alt: "에어컨 첫 가동" },
+            { date: "2023.03.29", title: "봄의 쿠키", alt: "봄의 쿠키" },
+            { date: "2023.02.14", title: "발렌냥데이", alt: "발렌냥데이" },
+            // 2022년
+            { date: "2022.12.30", title: "올해 마지막 낮잠", alt: "올해 마지막 낮잠" },
+            { date: "2022.09.01", title: "집순이 듀오", alt: "집순이 듀오" },
+            { date: "2022.06.12", title: "쿠키의 첫 여름 수박 냄새", alt: "쿠키의 첫 여름 수박 냄새" },
+            { date: "2022.03.30", title: "봄비 구경", alt: "봄비 구경" },
+            { date: "2022.01.15", title: "첫 브러싱 성공!", alt: "첫 브러싱 성공!" },
+            // 2021년
+            { date: "2021.12.25", title: "쿠키의 크리스마스", alt: "쿠키의 크리스마스" },
+            { date: "2021.10.02", title: "초파리 사냥꾼", alt: "초파리 사냥꾼" },
+            { date: "2021.08.18", title: "선풍기랑 싸우는 쿠키", alt: "선풍기랑 싸우는 쿠키" },
+            { date: "2021.06.10", title: "병원 갔다옴", alt: "병원 갔다옴" },
+            { date: "2021.05.23", title: "봄 햇살이랑 쿠키", alt: "봄 햇살이랑 쿠키" },
+            { date: "2021.04.07", title: "털갈이의 시작...", alt: "털갈이의 시작..." },
+            { date: "2021.03.14", title: "화이트데이 츄르 선물", alt: "화이트데이 츄르 선물" },
+            { date: "2021.01.05", title: "새해 첫 꾹냥이", alt: "새해 첫 꾹냥이" },
+            // 2020년 (초기)
+            { date: "2020.12.01", title: "첫 겨울, 첫 눈", alt: "첫 겨울, 첫 눈" },
+            { date: "2020.11.21", title: "이불 속 동거묘", alt: "이불 속 동거묘" },
+            { date: "2020.11.03", title: "간식 도둑", alt: "간식 도둑" },
+            { date: "2020.10.11", title: "낮잠의 왕자", alt: "낮잠의 왕자" },
+            { date: "2020.10.01", title: "처음으로 창밖 구경", alt: "처음으로 창밖 구경" },
+            { date: "2020.09.15", title: "빗질 대참사", alt: "빗질 대참사" },
+            { date: "2020.09.10", title: "첫 꾹꾹이!!", alt: "첫 꾹꾹이!!" },
+            { date: "2020.09.05", title: "첫 사료 테스트", alt: "첫 사료 테스트" },
+            { date: "2020.09.02", title: "새 집의 첫 아침", alt: "새 집의 첫 아침" },
+            { date: "2020.09.01", title: "다시 태어난 쿠키!", alt: "다시 태어난 쿠키!" },
+        ];
+        
+        const POSTS_PER_PAGE = 5;
+        const totalPages = Math.ceil(allDiaryEntries.length / POSTS_PER_PAGE);
+        const currentPostDate = "2025.04.27"; // 🌟 현재 파일의 날짜 🌟
+        const listContainer = document.getElementById('post-list-ul');
+        const paginationControls = document.getElementById('pagination-controls');
+
+        // 🌟 현재 글이 속한 페이지 번호 계산 🌟
+        const currentIndex = allDiaryEntries.findIndex(entry => entry.date === currentPostDate);
+        let activePage = 1;
+        if (currentIndex !== -1) {
+            activePage = Math.floor(currentIndex / POSTS_PER_PAGE) + 1;
+        }
+
+
+        // 페이지별 목록 렌더링 함수
+        function renderPostList(page) {
+            const start = (page - 1) * POSTS_PER_PAGE;
+            const end = start + POSTS_PER_PAGE;
+            const entriesToShow = allDiaryEntries.slice(start, end);
+            
+            listContainer.innerHTML = ''; // 기존 목록 초기화
+
+            entriesToShow.forEach(entry => {
+                const linkFileName = `diary_${entry.date}.html`;
+                const isCurrentPost = entry.date === currentPostDate;
+                
+                const listItem = document.createElement('li');
+                if (isCurrentPost) {
+                    listItem.style.fontWeight = 'bold';
+                }
+
+                listItem.innerHTML = `
+                    <a href="${linkFileName.replace(/\./g, '.')}" 
+                       class="list-post-title" 
+                       style="color:${isCurrentPost ? '#000' : '#999'};"
+                    >${entry.title}</a>
+                    <span class="list-date">${entry.date.replace(/\./g, '. ')}</span>
+                `;
+                listContainer.appendChild(listItem);
+            });
+            
+            // 목록 렌더링 후 페이징 컨트롤 업데이트
+            updatePaginationControls(page);
+        }
+
+        // 페이징 컨트롤 업데이트 및 이벤트 리스너 설정 함수
+        function updatePaginationControls(currentPage) {
+            paginationControls.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLink = document.createElement('a');
+                pageLink.href = 'javascript:void(0)'; 
+                pageLink.className = 'page-link' + (i === currentPage ? ' active' : '');
+                pageLink.textContent = i;
+                
+                pageLink.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    activePage = i;
+                    renderPostList(activePage);
+                    document.querySelector('.post-list-section').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                paginationControls.appendChild(pageLink);
+            }
+        }
+        
+        // 페이지 로드 시 실행 (초기 목록 및 페이징 로드)
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPostList(activePage);
+        });
+    </script>
+
+</body>
+</html>
